@@ -2,3 +2,6 @@ flask
 Flask-WTF
 WTForms
 torch
+scikit-learn
+pandas
+matplotlib
