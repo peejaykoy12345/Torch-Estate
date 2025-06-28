@@ -1,0 +1,71 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="content-section">
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset>
+            <legend class="border-bottom mb-4">Input your house info</legend>
+            
+            <div class="form-group row align-items-center">
+                <div class="col-md-4">
+                    {{ form.current_price.label(class="form-control-label input-left") }}
+                </div>
+                <div class="col-md-8">
+                    {% if form.current_price.errors %}
+                        {{ form.current_price(class="form-control form-control-lg is-invalid move-input-right") }}
+                        <div class="invalid-feedback" style="margin-left:0;">
+                            {% for error in form.current_price.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.current_price(class="form-control form-control-lg move-input-right") }}
+                    {% endif %}
+                </div>
+            </div>
+            
+            <div class="form-group row align-items-center">
+                <div class="col-md-4">
+                    {{ form.area.label(class="form-control-label input-left") }}
+                </div>
+                <div class="col-md-8">
+                    {% if form.area.errors %}
+                        {{ form.area(class="form-control form-control-lg is-invalid move-input-right") }}
+                        <div class="invalid-feedback" style="margin-left:0;">
+                            {% for error in form.area.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.area(class="form-control form-control-lg move-input-right") }}
+                    {% endif %}
+                </div>
+            </div>
+            
+            <div class="form-group row align-items-center">
+                <div class="col-md-4">
+                    {{ form.quality.label(class="form-control-label input-left") }}
+                </div>
+                <div class="col-md-8">
+                    {% if form.quality.errors %}
+                        {{ form.quality(class="form-control form-control-lg is-invalid move-input-right") }}
+                        <div class="invalid-feedback" style="margin-left:0;">
+                            {% for error in form.quality.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.quality(class="form-control form-control-lg move-input-right") }}
+                    {% endif %}
+                </div>
+            </div>
+        </fieldset>
+        <div class="form-group text-right">
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+    </form>
+</div>
+
+{% endblock content %}
